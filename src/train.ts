@@ -1,6 +1,5 @@
-// Task - G
-function getHighestIndex(arr) {
-  let max = Math.max(...arr);
-  return arr.indexOf(max);
+// Task - H
+function getHighestIndex(str: string): string {
+  return str.split("").reverse().join("");
 }
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
+console.log(getHighestIndex("hello"));
