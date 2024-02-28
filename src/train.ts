@@ -1,5 +1,9 @@
 // Task - H
-function gerReverse(str: string): string {
-  return str.split("").reverse().join("");
+
+function getPositive(arr: number[]): string {
+  let result = "";
+  arr.forEach((v) => (v > 0 ? (result += v) : null));
+  return result;
 }
-console.log(gerReverse("hello"));
+
+console.log(getPositive([1, -4, 2]));
