@@ -7,3 +7,9 @@
     SNAKE case : css
   - Error handling
 */
+
+/*
+Traditional Api
+Rest Api
+GraphQL Api
+*/
