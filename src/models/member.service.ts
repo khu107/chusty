@@ -51,11 +51,10 @@ class MemberService {
         memberType: MemberType.RESTAURANT,
       })
       .exec();
+    if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-
-    if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     try {
       const result = await this.memberModel.create(input);
       return result;
