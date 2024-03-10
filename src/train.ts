@@ -1,11 +1,13 @@
-// Task - J
-function findLongestWord(str: string): string {
-  let result = str
-    .split(" ")
-    .reduce((acc, curr) => (acc.length >= curr.length ? acc : curr));
-  return result;
+// Task - K
+function countVowels(str: string): number {
+  let unli = ["a", "i", "o", "u", "e"];
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (unli.includes(str[i])) count++;
+  }
+  return count;
 }
-console.log(findLongestWord("I come from Uzbekistan"));
+console.log(countVowels("string1"));
 
 /* Project Standards:
   - Logging standards
