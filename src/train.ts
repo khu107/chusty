@@ -1,13 +1,12 @@
-// Task - K
-function countVowels(str: string): number {
-  let unli = ["a", "i", "o", "u", "e"];
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (unli.includes(str[i])) count++;
-  }
-  return count;
+// Task - L
+function reverseSentence(str: string): string {
+  return str
+    .split(" ")
+    .map((str) => str.split("").reverse().join(""))
+    .join(" ");
 }
-console.log(countVowels("string1"));
+
+console.log(reverseSentence("we like coding!"));
 
 /* Project Standards:
   - Logging standards
