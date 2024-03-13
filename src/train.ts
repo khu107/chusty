@@ -19,8 +19,19 @@ console.log(countVowels("string1"));
   - Error handling
 */
 
-/*
+/* Request:
 Traditional Api
 Rest Api
 GraphQL Api
+*/
+
+/* Cookie:
+  request: join
+  self: destroy
+*/
+
+/* Validation:
+  Frontend: validation
+  Backend: validation
+  Database: validation
 */
