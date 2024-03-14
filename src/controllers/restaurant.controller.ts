@@ -44,14 +44,15 @@ restaurantController.proccessSignup = async (
 ) => {
   try {
     console.log("proccessSignup");
-
+    const file = req.file;
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
+    newMember.memberImage = file?.path;
     const result = await memberService.proccessSignup(newMember);
     // session
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error, proccessSignup", err);
@@ -76,7 +77,7 @@ restaurantController.proccessLogin = async (
     // session
     req.session.member = result;
     req.session.save(function () {
-      res.send(result);
+      res.redirect("/admin/product/all");
     });
   } catch (err) {
     console.log("Error, proccessLogin", err);
