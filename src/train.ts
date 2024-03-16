@@ -1,18 +1,10 @@
-// Task - M
-interface NumberSquare {
-  number: number;
-  square: number;
-}
-function getSquareNumbers(arr: number[]): NumberSquare[] {
-  return arr.map((num) => {
-    return {
-      number: num,
-      square: num * num,
-    };
-  });
+// Task - N
+function palindromCheck(arr: string): boolean {
+  let reverse = arr.split("").reverse().join("");
+  return arr === reverse ? true : false;
 }
 
-console.log(getSquareNumbers([1, 2, 3]));
+console.log(palindromCheck("dad"));
 
 /* Project Standards:
   - Logging standards
