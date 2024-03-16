@@ -1,12 +1,18 @@
-// Task - L
-function reverseSentence(str: string): string {
-  return str
-    .split(" ")
-    .map((str) => str.split("").reverse().join(""))
-    .join(" ");
+// Task - M
+interface NumberSquare {
+  number: number;
+  square: number;
+}
+function getSquareNumbers(arr: number[]): NumberSquare[] {
+  return arr.map((num) => {
+    return {
+      number: num,
+      square: num * num,
+    };
+  });
 }
 
-console.log(reverseSentence("we like coding!"));
+console.log(getSquareNumbers([1, 2, 3]));
 
 /* Project Standards:
   - Logging standards
