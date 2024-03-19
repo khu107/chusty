@@ -88,7 +88,6 @@ restaurantController.proccessLogin = async (
     res.send(
       `<script>alert("${message}"); window.location.replace('/admin/login')</script>`
     );
-    res.send(err);
   }
 };
 

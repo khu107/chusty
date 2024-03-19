@@ -1,10 +1,12 @@
-// Task - N
-function palindromCheck(arr: string): boolean {
-  let reverse = arr.split("").reverse().join("");
-  return arr === reverse ? true : false;
+// Task - O
+function calculateSumOfNumbers(arr: any[]): number {
+  return arr.reduce((acc, curr) => {
+    if (typeof curr === "number") return acc + curr;
+    else return acc;
+  }, 0);
 }
 
-console.log(palindromCheck("dad"));
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
 
 /* Project Standards:
   - Logging standards
@@ -17,7 +19,7 @@ console.log(palindromCheck("dad"));
 */
 
 /* Request:
-Traditional Api
+Traditional Api (form -> html ni uzini elementlari orqali Post request ni misol qilishimiz mumkin)
 Rest Api
 GraphQL Api
 */
