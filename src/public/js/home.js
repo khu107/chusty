@@ -6,11 +6,11 @@ function fitElementToParent(el, padding) {
   function resize() {
     if (timeout) clearTimeout(timeout);
     anime.set(el, { scale: 1 });
-    let pad = padding || 0;
-    let parentEl = el.parentNode;
-    let elOffsetWidth = el.offsetWidth - pad;
-    let parentOffsetWidth = parentEl.offsetWidth;
-    let ratio = parentOffsetWidth / elOffsetWidth;
+    let pad = padding || 0,
+      parentEl = el.parentNode,
+      elOffsetWidth = el.offsetWidth - pad,
+      parentOffsetWidth = parentEl.offsetWidth,
+      ratio = parentOffsetWidth / elOffsetWidth;
     timeout = setTimeout(anime.set(el, { scale: ratio }), 10);
   }
 
