@@ -1,9 +1,13 @@
-// Task - P
-function objectToArray(obj: { [key: string]: any }): [string, any][] {
-  return Object.entries(obj);
+// Task - Q
+function hasProperty(a: { [key: string]: any }, b: string): boolean {
+  for (let key in a) {
+    if (key === b) {
+      return true;
+    }
+  }
+  return false;
 }
-
-console.log(objectToArray({ a: 10, b: 20 }));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
 
 /* Project Standards:
   - Logging standards
