@@ -1,13 +1,17 @@
-// Task - Q
-function hasProperty(a: { [key: string]: any }, b: string): boolean {
-  for (let key in a) {
-    if (key === b) {
-      return true;
-    }
+// Task - R
+function calculate(expression: string): number | null {
+  try {
+    var result = eval(expression);
+    return result;
+  } catch (error) {
+    console.log("Error:", error);
+    return null;
   }
-  return false;
 }
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+
+// 함수 테스트
+var result = calculate("1+3");
+console.log(result); // 결과는 4가 될 것입니다.
 
 /* Project Standards:
   - Logging standards
