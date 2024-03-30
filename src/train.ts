@@ -1,17 +1,12 @@
-// Task - R
-function calculate(expression: string): number | null {
-  try {
-    var result = eval(expression);
-    return result;
-  } catch (error) {
-    console.log("Error:", error);
-    return null;
-  }
+// Task - S
+function missingNumber(nums: number[]): number {
+  const n: number = nums.length;
+  const totalSum: number = (n * (n + 1)) / 2;
+  const arraySum: number = nums.reduce((sum, num) => sum + num, 0);
+  return totalSum - arraySum;
 }
 
-// 함수 테스트
-var result = calculate("1+3");
-console.log(result); // 결과는 4가 될 것입니다.
+console.log(missingNumber([3, 0, 1]));
 
 /* Project Standards:
   - Logging standards
