@@ -1,12 +1,9 @@
-// Task - S
-function missingNumber(nums: number[]): number {
-  const n: number = nums.length;
-  const totalSum: number = (n * (n + 1)) / 2;
-  const arraySum: number = nums.reduce((sum, num) => sum + num, 0);
-  return totalSum - arraySum;
+// Task - T
+function mergeSortedArrays(num: number[], num1: number[]): number[] {
+  return num.concat(num1).sort((a, b) => a - b);
 }
 
-console.log(missingNumber([3, 0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 /* Project Standards:
   - Logging standards
