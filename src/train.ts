@@ -1,9 +1,15 @@
-// Task - T
-function mergeSortedArrays(num: number[], num1: number[]): number[] {
-  return num.concat(num1).sort((a, b) => a - b);
+// Task - U
+function sumOdds(num: number) {
+  let a = [];
+  for (let i = 0; i < num; i++) {
+    if (i % 2 === 1) {
+      a.push(i);
+    }
+  }
+  return a.length;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(sumOdds(11));
 
 /* Project Standards:
   - Logging standards
