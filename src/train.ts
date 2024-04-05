@@ -1,3 +1,17 @@
+// Task - V
+function countChars(str: string) {
+  let charCount: any = {};
+  for (let char of str) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  return charCount;
+}
+console.log(countChars("hello"));
+
 // Task - U
 function sumOdds(num: number) {
   let a = [];
