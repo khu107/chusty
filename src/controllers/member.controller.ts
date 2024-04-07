@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
-import Errors, { HttpCode } from "../libs/Error";
+import Errors, { HttpCode, Message } from "../libs/Error";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
@@ -46,6 +46,23 @@ memberController.login = async (req: Request, res: Response) => {
     // Token Auth
 
     res.status(HttpCode.OK).json({ member: result, accessToken: token });
+  } catch (error) {
+    console.log("Error, login", error);
+    if (error instanceof Errors) res.status(error.code).json(error);
+    else res.status(Errors.standart.code).json(Errors.standart);
+  }
+};
+
+memberController.verifyAuth = async (req: Request, res: Response) => {
+  try {
+    let member = null;
+    const token = req.cookies["accessToken"];
+    if (token) member = await authService.checkAuth(token);
+
+    if (!member)
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+
+    res.status(HttpCode.OK).json({ member: member });
   } catch (error) {
     console.log("Error, login", error);
     if (error instanceof Errors) res.status(error.code).json(error);
