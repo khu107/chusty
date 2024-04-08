@@ -70,6 +70,21 @@ memberController.logout = (req: ExtendedRequest, res: Response) => {
   }
 };
 
+memberController.getMemberDetail = async (
+  req: ExtendedRequest,
+  res: Response
+) => {
+  try {
+    console.log("getMemberDetail");
+    const result = await memberService.getMemberDetail(req.member);
+    res.status(HttpCode.OK).json(result);
+  } catch (error) {
+    console.log("Error, getMemberDetail", error);
+    if (error instanceof Errors) res.status(error.code).json(error);
+    else res.status(Errors.standart.code).json(Errors.standart);
+  }
+};
+
 memberController.verifyAuth = async (
   req: ExtendedRequest,
   res: Response,
