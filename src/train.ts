@@ -1,29 +1,13 @@
-// Task - V
-function countChars(str: string) {
-  let charCount: any = {};
-  for (let char of str) {
-    if (charCount[char]) {
-      charCount[char]++;
-    } else {
-      charCount[char] = 1;
-    }
+// Task - W
+function chunkArray(arr: number[], n: number): number[][] {
+  let chunks: number[][] = [];
+  for (let i = 0; i < arr.length; i += n) {
+    chunks.push(arr.slice(i, i + n));
   }
-  return charCount;
-}
-console.log(countChars("hello"));
-
-// Task - U
-function sumOdds(num: number) {
-  let a = [];
-  for (let i = 0; i < num; i++) {
-    if (i % 2 === 1) {
-      a.push(i);
-    }
-  }
-  return a.length;
+  return chunks;
 }
 
-console.log(sumOdds(11));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
 /* Project Standards:
   - Logging standards
