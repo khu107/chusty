@@ -51,6 +51,7 @@ restaurantController.proccessSignup = async (
     newMember.memberType = MemberType.RESTAURANT;
     newMember.memberImage = file?.path.replace(/\\/g, "/");
     const result = await memberService.proccessSignup(newMember);
+
     // session
     req.session.member = result;
     req.session.save(function () {
