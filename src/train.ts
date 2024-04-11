@@ -1,13 +1,25 @@
-// Task - W
-function chunkArray(arr: number[], n: number): number[][] {
-  let chunks: number[][] = [];
-  for (let i = 0; i < arr.length; i += n) {
-    chunks.push(arr.slice(i, i + n));
+// Task - X
+function countOccurrences(obj: any, key: string): number {
+  let count = 0;
+
+  if (typeof obj === "object" && obj !== null) {
+    for (const k in obj) {
+      if (k === key) {
+        count += 1;
+      }
+      count += countOccurrences(obj[k], key);
+    }
   }
-  return chunks;
+
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+);
 
 /* Project Standards:
   - Logging standards
