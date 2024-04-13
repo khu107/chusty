@@ -10,11 +10,16 @@ import {
 } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
 import { ProductStatus } from "../libs/enums/product.enum";
+import { ViewInput } from "../libs/types/view";
+import { viewGroup } from "../libs/enums/view.enum";
+import ViewService from "./View.service";
 
 class ProductService {
   private readonly productModel;
+  public viewService;
   constructor() {
     this.productModel = ProductModel;
+    this.viewService = new ViewService();
   }
 
   /* SPA */
@@ -57,6 +62,28 @@ class ProductService {
       })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    if (memberId) {
+      const input: ViewInput = {
+        memberId: memberId,
+        viewRefId: productId,
+        viewGroup: viewGroup.PRODUCT,
+      };
+      const exitsView = await this.viewService.checkViewExistence(input);
+      console.log("exits:", !!exitsView);
+
+      if (!exitsView) {
+        console.log("PlANING TO INSERT NEW VIEW");
+        await this.viewService.insertMemberView(input);
+
+        result = await this.productModel
+          .findByIdAndUpdate(
+            productId,
+            { $inc: { productViews: +1 } },
+            { new: true }
+          )
+          .exec();
+      }
+    }
 
     return result;
   }
