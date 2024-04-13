@@ -1,25 +1,18 @@
-// Task - X
-function countOccurrences(obj: any, key: string): number {
-  let count = 0;
+// Task - Y
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
 
-  if (typeof obj === "object" && obj !== null) {
-    for (const k in obj) {
-      if (k === key) {
-        count += 1;
-      }
-      count += countOccurrences(obj[k], key);
-    }
-  }
+  const intersection = new Set([...set1].filter((x) => set2.has(x)));
 
-  return count;
+  const intersectionArray = Array.from(intersection);
+
+  intersectionArray.sort((a, b) => a - b);
+
+  return intersectionArray;
 }
 
-console.log(
-  countOccurrences(
-    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
-    "model"
-  )
-);
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 
 /* Project Standards:
   - Logging standards
