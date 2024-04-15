@@ -1,18 +1,15 @@
-// Task - Y
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-  const set1 = new Set(arr1);
-  const set2 = new Set(arr2);
-
-  const intersection = new Set([...set1].filter((x) => set2.has(x)));
-
-  const intersectionArray = Array.from(intersection);
-
-  intersectionArray.sort((a, b) => a - b);
-
-  return intersectionArray;
+// Task - Z
+function sumEvens(array: number[]): number {
+  let sum: number = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      sum += array[i];
+    }
+  }
+  return sum;
 }
 
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+console.log(sumEvens([1, 2, 3]));
 
 /* Project Standards:
   - Logging standards
