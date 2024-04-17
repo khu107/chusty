@@ -1,15 +1,13 @@
-// Task - Z
-function sumEvens(array: number[]): number {
-  let sum: number = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 === 0) {
-      sum += array[i];
-    }
-  }
-  return sum;
+// Task - ZA
+interface Person {
+  age: number;
 }
 
-console.log(sumEvens([1, 2, 3]));
+function sortByAge(people: Person[]): Person[] {
+  return people.sort((a, b) => a.age - b.age);
+}
+
+console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
 
 /* Project Standards:
   - Logging standards
