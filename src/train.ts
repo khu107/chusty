@@ -1,13 +1,18 @@
-// Task - ZA
-interface Person {
-  age: number;
+// Task - ZB
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function sortByAge(people: Person[]): Person[] {
-  return people.sort((a, b) => a.age - b.age);
+const randomNumber = randomBetween(30, 50);
+console.log(randomNumber);
+
+// Task - ZC
+function celsiusToFahrenheit(celsius: number): number {
+  return (celsius * 9) / 5 + 32;
 }
 
-console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
+const fahrenheit = celsiusToFahrenheit(0);
+console.log(fahrenheit);
 
 /* Project Standards:
   - Logging standards
