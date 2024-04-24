@@ -17,8 +17,8 @@ export interface Product {
   productDesc?: string;
   productImages: string[];
   productViews: number;
-  // createdAt: Date;
-  // updatedAt: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export interface ProductInquery {
   order: string;

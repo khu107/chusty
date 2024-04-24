@@ -1,18 +1,16 @@
-// Task - ZB
-function randomBetween(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// Task - ZD
+function changeNumberInArray(
+  index: number,
+  arr: number[],
+  newNumber: number
+): number[] {
+  if (index >= 0 && index < arr.length) {
+    arr[index] = newNumber;
+  }
+  return arr;
 }
 
-const randomNumber = randomBetween(30, 50);
-console.log(randomNumber);
-
-// Task - ZC
-function celsiusToFahrenheit(celsius: number): number {
-  return (celsius * 9) / 5 + 32;
-}
-
-const fahrenheit = celsiusToFahrenheit(0);
-console.log(fahrenheit);
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
 
 /* Project Standards:
   - Logging standards
