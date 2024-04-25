@@ -1,16 +1,12 @@
-// Task - ZD
-function changeNumberInArray(
-  index: number,
-  arr: number[],
-  newNumber: number
-): number[] {
-  if (index >= 0 && index < arr.length) {
-    arr[index] = newNumber;
-  }
-  return arr;
+// Task - ZE
+function removeDuplicate(str: string): string {
+  let arr: string[] = str.split("");
+  let set = new Set<string>(arr);
+
+  return Array.from(set).join("");
 }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+console.log(removeDuplicate("stringg"));
 
 /* Project Standards:
   - Logging standards
