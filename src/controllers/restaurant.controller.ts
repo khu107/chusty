@@ -12,8 +12,8 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.render("home");
-  } catch (error) {
-    console.log("Error, goHome", error);
+  } catch (err) {
+    console.log("Error, goHome", err);
     res.redirect("/admin");
   }
 };
@@ -22,8 +22,8 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.render("signup");
-  } catch (error) {
-    console.log("Error, getSignup", error);
+  } catch (err) {
+    console.log("Error, getSignup", err);
     res.redirect("/admin");
   }
 };
@@ -32,8 +32,8 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render("login");
-  } catch (error) {
-    console.log("Error, gogetLoginHome", error);
+  } catch (err) {
+    console.log("Error, gogetLoginHome", err);
     res.redirect("/admin");
   }
 };
@@ -109,8 +109,8 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
     console.log("getUsers");
     const result = await memberService.getUsers();
     res.render("users", { users: result });
-  } catch (error) {
-    console.log("Error, getUsers", error);
+  } catch (err) {
+    console.log("Error, getUsers", err);
     res.redirect("/admin/login");
   }
 };
@@ -120,9 +120,9 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
     console.log("updateChosenUser");
     const result = await memberService.updateChosenUser(req.body);
     res.status(HttpCode.OK).json({ data: result });
-  } catch (error) {
-    console.log("Error, updateChosenUser", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, updateChosenUser", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };

@@ -28,9 +28,9 @@ productController.getProducts = async (req: Request, res: Response) => {
 
     const result = await productService.getProducts(inquery);
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, getProducts", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getProducts", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -42,9 +42,9 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
     const memberId = req.member?._id ?? null,
       result = await productService.getProduct(memberId, id);
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, getProduct", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getProduct", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -57,9 +57,9 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     console.log(data);
 
     res.render("products", { products: data });
-  } catch (error) {
-    console.log("Error, getAllProducts", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getAllProducts", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -84,10 +84,10 @@ productController.createNewProduct = async (
     res.send(
       `<script>alert("${"Sucessful creation!"}"); window.location.replace('/admin/product/all')</script>`
     );
-  } catch (error) {
-    console.log("Error, createNewProduct", error);
+  } catch (err) {
+    console.log("Error, createNewProduct", err);
     const message =
-      error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG;
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
       `<script>alert("${message}"); window.location.replace('/admin/product/all')</script>`
     );
@@ -102,9 +102,9 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
     const result = await productService.updateChosenProduct(id, req.body);
 
     res.status(HttpCode.OK).json({ data: result });
-  } catch (error) {
-    console.log("Error, updateChosenProduct", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, updateChosenProduct", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };

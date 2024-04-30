@@ -45,8 +45,8 @@ class OrderService {
       // Todo: create order items
       await this.recordOrderItem(orderId, input);
       return newOrder;
-    } catch (error) {
-      console.log("Error, model: createOrder", error);
+    } catch (err) {
+      console.log("Error, model: createOrder", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }

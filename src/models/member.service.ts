@@ -33,8 +33,8 @@ class MemberService {
     try {
       const result = await this.memberModel.create(input);
       return result.toJSON();
-    } catch (error) {
-      console.error("Error, model:signup", error);
+    } catch (err) {
+      console.error("Error, model:signup", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
@@ -130,7 +130,7 @@ class MemberService {
     try {
       const result = await this.memberModel.create(input);
       return result;
-    } catch (error) {
+    } catch (err) {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }

@@ -15,9 +15,9 @@ orderController.createOrder = async (req: ExtendedRequest, res: Response) => {
     console.log("createOrder");
     const result = await orderService.createOrder(req.member, req.body);
     res.status(HttpCode.CREATED).json({ result });
-  } catch (error) {
-    console.log("Error, createOrder", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, createOrder", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -35,9 +35,9 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
     const result = await orderService.getMyOrders(req.member, inquiry);
 
     res.status(HttpCode.CREATED).json(result);
-  } catch (error) {
-    console.log("Error, getMyOrders", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getMyOrders", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -50,9 +50,9 @@ orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
     const result = await orderService.updateOrder(req.member, input);
 
     res.status(HttpCode.CREATED).json(result);
-  } catch (error) {
-    console.log("Error, updateOrder", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, updateOrder", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };

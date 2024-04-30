@@ -1,12 +1,17 @@
-// Task - ZE
-function removeDuplicate(str: string): string {
-  let arr: string[] = str.split("");
-  let set = new Set<string>(arr);
-
-  return Array.from(set).join("");
+// Task - ZF
+function capitalizeWords(input: string): string {
+  const words: string[] = input.split(" ");
+  const capitalizedWords: string[] = [];
+  for (const word of words) {
+    if (word.length <= 2) {
+      capitalizedWords.push(word);
+    } else {
+      capitalizedWords.push(word.charAt(0).toUpperCase() + word.slice(1));
+    }
+  }
+  return capitalizedWords.join(" ");
 }
-
-console.log(removeDuplicate("stringg"));
+console.log(capitalizeWords("name should be a string"));
 
 /* Project Standards:
   - Logging standards

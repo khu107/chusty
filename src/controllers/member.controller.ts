@@ -24,9 +24,9 @@ memberController.getRestaurant = async (req: Request, res: Response) => {
     console.log("getRestaurant");
     const result = await memberService.getRestaurant();
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, getRestaurant", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getRestaurant", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -44,9 +44,9 @@ memberController.signup = async (req: Request, res: Response) => {
     // Token Auth
 
     res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
-  } catch (error) {
-    console.log("Error, signup", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, signup", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -65,9 +65,9 @@ memberController.login = async (req: Request, res: Response) => {
     // Token Auth
 
     res.status(HttpCode.OK).json({ member: result, accessToken: token });
-  } catch (error) {
-    console.log("Error, login", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, login", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -77,9 +77,9 @@ memberController.logout = (req: ExtendedRequest, res: Response) => {
     console.log("logout");
     res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
     res.status(HttpCode.OK).json({ logout: true });
-  } catch (error) {
-    console.log("Error, logout", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, logout", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -92,9 +92,9 @@ memberController.getMemberDetail = async (
     console.log("getMemberDetail");
     const result = await memberService.getMemberDetail(req.member);
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, getMemberDetail", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getMemberDetail", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -107,9 +107,9 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
     const result = await memberService.updateMember(req.member, input);
 
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, updateMember", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, updateMember", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -119,9 +119,9 @@ memberController.getTopUsers = async (req: Request, res: Response) => {
     console.log("getTopUsers");
     const result = await memberService.getTopUsers();
     res.status(HttpCode.OK).json(result);
-  } catch (error) {
-    console.log("Error, getTopUsers", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, getTopUsers", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -139,9 +139,9 @@ memberController.verifyAuth = async (
       throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
 
     next();
-  } catch (error) {
-    console.log("Error, verifyAuth", error);
-    if (error instanceof Errors) res.status(error.code).json(error);
+  } catch (err) {
+    console.log("Error, verifyAuth", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
@@ -155,8 +155,8 @@ memberController.retrieveAuth = async (
     const token = req.cookies["accessToken"];
     if (token) req.member = await authService.checkAuth(token);
     next();
-  } catch (error) {
-    console.log("Error, retrieveAuth", error);
+  } catch (err) {
+    console.log("Error, retrieveAuth", err);
     next();
   }
 };
