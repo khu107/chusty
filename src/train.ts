@@ -1,17 +1,13 @@
-// Task - ZF
-function capitalizeWords(input: string): string {
-  const words: string[] = input.split(" ");
-  const capitalizedWords: string[] = [];
-  for (const word of words) {
-    if (word.length <= 2) {
-      capitalizedWords.push(word);
-    } else {
-      capitalizedWords.push(word.charAt(0).toUpperCase() + word.slice(1));
-    }
-  }
-  return capitalizedWords.join(" ");
+// Task - ZG
+function modifyWords(str: string): string {
+  str = str.trim();
+
+  str = str.replace(/\s+/g, "_").toLowerCase();
+
+  return str;
 }
-console.log(capitalizeWords("name should be a string"));
+
+console.log(modifyWords("name should be a string"));
 
 /* Project Standards:
   - Logging standards
