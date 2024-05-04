@@ -1,13 +1,15 @@
-// Task - ZG
-function modifyWords(str: string): string {
-  str = str.trim();
-
-  str = str.replace(/\s+/g, "_").toLowerCase();
-
-  return str;
+// Task - ZH
+function findDisappearedNumbers(nums: number[]): number[] {
+  const n = nums[nums.length - 1];
+  let res = [];
+  for (let i = 1; i <= n; i++) {
+    if (!nums.includes(i)) {
+      res.push(i);
+    }
+  }
+  return res;
 }
-
-console.log(modifyWords("name should be a string"));
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
 
 /* Project Standards:
   - Logging standards
