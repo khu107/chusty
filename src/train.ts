@@ -1,15 +1,14 @@
-// Task - ZH
-function findDisappearedNumbers(nums: number[]): number[] {
-  const n = nums[nums.length - 1];
-  let res = [];
-  for (let i = 1; i <= n; i++) {
-    if (!nums.includes(i)) {
-      res.push(i);
-    }
-  }
-  return res;
+// Task - ZI
+
+function delayHelloWorld(str: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(str);
+    }, 3000);
+  });
 }
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
+delayHelloWorld("Hello World").then((data) => console.log(data));
 
 /* Project Standards:
   - Logging standards
