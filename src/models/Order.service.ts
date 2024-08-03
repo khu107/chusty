@@ -10,11 +10,7 @@ import {
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { ObjectId } from "mongoose";
-<<<<<<< HEAD
-
-=======
-import MemberService from "../models/Member.service";
->>>>>>> 33c554c (fix: develop)
+import MemberService from "./Member.service";
 import { OrderStatus } from "../libs/enums/order.enum";
 
 class OrderService {
