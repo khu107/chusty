@@ -16,7 +16,7 @@ import { ObjectId } from "mongoose";
 import MemberService from "../models/Member.service";
 >>>>>>> 33c554c (fix: develop)
 import { OrderStatus } from "../libs/enums/order.enum";
-import MemberService from "./Member.service";
+
 class OrderService {
   private readonly orderModel;
   private readonly orderItemModel;
