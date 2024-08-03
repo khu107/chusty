@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
-import MemberService from "../models/Member.service";
+
 import {
   ExtendedRequest,
   LoginInput,
@@ -11,6 +11,7 @@ import {
 import Errors, { HttpCode, Message } from "../libs/Error";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
+import MemberService from "../models/Member.service";
 
 // REACT
 
