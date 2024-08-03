@@ -1,4 +1,4 @@
-import { shapeIntoMongooseObjectId } from "../libs/config";
+import { shapeIntoMongooseObjectId } from "./../libs/config";
 import MemberModel from "../schema/Member.model";
 import {
   LoginInput,
