@@ -10,7 +10,7 @@ import {
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { ObjectId } from "mongoose";
-import MemberService from "../models/Member.service";
+import MemberService from "./Temlate.service";
 import { OrderStatus } from "../libs/enums/order.enum";
 
 class OrderService {
