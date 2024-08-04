@@ -11,7 +11,7 @@ import {
 import Errors, { HttpCode, Message } from "../libs/Error";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
-import MemberService from "../models/Temlate.service";
+import MemberService from "../models/Member.service";
 
 // REACT
 
